@@ -1,0 +1,11 @@
+select  h8 as average_8th_hour_consumption from electricity_reading; 
+select avg(total_units) from electricity_reading;
+select payable_amount as average_payable_amount from bill where payable_amount >400;
+desc bill;
+select * from bill;
+select avg( fine_amount) as average_fine_amount  from bill where payment_date='2018-12-09';
+select sum(payable_amount) as sum_payable_amount from bill;
+select min(total_units) as min_total_units from electricity_reading;
+select min(fine_amount) as min_total_units from bill;
+select month,min(total_units) as minimum_units from bill;
+select stddev(fine_amount) as standard_deviation_amount from bill where payment_date='2018-12-09';
