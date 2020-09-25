@@ -18,4 +18,11 @@ select * from bill where payable_amount in (select payable_amount from meter ord
 select * from meter where owner_name,address,contact_number in(select meter_number number,owner_name,address,contact_number from building order by owner_name asc); 
  desc meter;
 select owner_name,address,contact_number from building where meter_number in(select meter_number from meter order by owner_name asc);
+desc meter;
+ Select bil.id,bil.meter_id,bil.month,bil.year,bil.due_date,bil.total_units, bil.payable_amount,bil.is_payed,bil.payment_date,bil.fine_amount,met.meter_number from bill bil left join meter met on bil.meter_id=met.id order by payable_amount;
+ select met.meter_number, bul.owner_name, bul.address, bul.contact_number from building bul left join meter m on met.building_id=bul.building_type_id order by owner_name and meter_number;
+ select met.meter_number, bul.owner_name, bul.address, bul.contact_number, bty.name,ect.connection_name from building bul left join meter met on met.building_id=bul.id left join building_type bty on bty.id=bul.building_type_id left join electricity_connection_type ecty on ecty.id=bty.connection_type_id order by owner_name and meter_number;
+ select ecty.connection_name, sl.from_unit, sl.to_unit, sl.rate from electricity_connection_type ecty left join slab sl on sl.connection_type_id=ecty.id order by rate;
+ select bul.owner_name, bul.address, met.meter_number,bil.payable_amount, bil.fine_amount from building bul left join meter m on met.building_id=bul.id left join bill bil on bil.meter_id=met.id where bil.fine_amount=(select max(fine_amount) from bill) order by bul.owner_name;
+
 
