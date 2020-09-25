@@ -14,15 +14,9 @@ select * from bill;
 select day,total_units as total_unit_perday from electricity_reading where day between '2017-06-15' and'2017-10-10' order by day asc;
 select * from electricity_reading;
 select due_date,payable_amount from bill where payment_date NOT BETWEEN '2017-06-15' AND '2017-10-10';
-select * from bill where payable_amount in (select payable_amount from meter order by payable_amount asc);
-select * from meter where owner_name,address,contact_number in(select meter_number number,owner_name,address,contact_number from building order by owner_name asc); 
- desc meter;
-select owner_name,address,contact_number from building where meter_number in(select meter_number from meter order by owner_name asc);
-desc meter;
- Select bil.id,bil.meter_id,bil.month,bil.year,bil.due_date,bil.total_units, bil.payable_amount,bil.is_payed,bil.payment_date,bil.fine_amount,met.meter_number from bill bil left join meter met on bil.meter_id=met.id order by payable_amount;
- select met.meter_number, bul.owner_name, bul.address, bul.contact_number from building bul left join meter m on met.building_id=bul.building_type_id order by owner_name and meter_number;
- select met.meter_number, bul.owner_name, bul.address, bul.contact_number, bty.name,ect.connection_name from building bul left join meter met on met.building_id=bul.id left join building_type bty on bty.id=bul.building_type_id left join electricity_connection_type ecty on ecty.id=bty.connection_type_id order by owner_name and meter_number;
- select ecty.connection_name, sl.from_unit, sl.to_unit, sl.rate from electricity_connection_type ecty left join slab sl on sl.connection_type_id=ecty.id order by rate;
- select bul.owner_name, bul.address, met.meter_number,bil.payable_amount, bil.fine_amount from building bul left join meter m on met.building_id=bul.id left join bill bil on bil.meter_id=met.id where bil.fine_amount=(select max(fine_amount) from bill) order by bul.owner_name;
-
-
+Sub Queries
+1. Select b.id,b.meter_id,b.month,b.year,b.due_date,b.total_units, b.payable_amount,b.is_payed,b.payment_date,b.fine_amount,m.meter_number from bill b left join meter m on bil.meter_id=m.id order by payable_amount;
+2. select m.meter_number, b.owner_name, b.address, b.contact_number from building b left join meter m on m.building_id=b.building_type_id order by owner_name and meter_number;
+3. select m.meter_number, b.owner_name, b.address, b.contact_number, by.name,et.connection_name from building bu left join meter m on m.building_id=bu.id left join building_type by on by.id=bul.building_type_id left join electricity_connection_type et on et.id=bty.connection_type_id order by owner_name and meter_number;
+4. select et.connection_name, sl.from_unit, sl.to_unit, sl.rate from electricity_connection_type et left join slab sl on sl.connection_type_id=et.id order by rate;
+5. select bu.owner_name, bu.address, m.meter_number,b.payable_amount, b.fine_amount from building bul left join meter m on m.building_id=bu.id left join bill b on b.meter_id=m.id where b.fine_amount=(select max(fine_amount) from bill) order by bu.owner_name;
