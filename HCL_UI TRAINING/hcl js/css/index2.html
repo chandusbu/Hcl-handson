@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Validation</title>
+    <script src="Script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id=Event_Name>
+        <h2>VALIDATING DUPLICATE EVENTS</h2>
+        Enter Event Name: <input type="text" id="EventName">
+        <br> <br>
+        <button onclick="addEvent()" id="Add_Event">Add Event</button>
+        <button onclick="displayEvent()" id="Display_Event">Display Event</button>
+    </div>
+    <br> <br>
+    <div id="Success_Message">
+    </div>
+
+    <div id="Result">
+        <table id="Result_table">
+            <tr>
+                <th>EventNames</th>
+            </tr>
+            
+
+        </table>
+    </div>
+
+</body>
+
+</html>

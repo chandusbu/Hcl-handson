@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="./Script.js" defer></script>
+</head>
+<body>
+    <h2> Validating Duplicate Events</h2>
+    
+    
+         <div >
+              <label>Enter event name</label>
+             <input type="text" id="eventname" name="eventname" required/><br></br>
+             <button onclick="addEvent()" type="button" id="addEvent">addEvent</button>
+             <button onclick="displayEvent()" type="button" id="displayEvent">displayEvent</button>
+
+    </div>
+    
+    <p id="demo"></p> 
+  
+    <script> 
+        // Here the value is stod in new variable x  
+  
+        function addEvent() { 
+            var x =  
+                document.getElementById("eventname").value; 
+                
+            if(x==='')
+            {
+            document.getElementById( 
+            "demo").innerHTML = 'Event added successfully'; 
+            }
+            else if(x== '')
+    {
+        document.getElementById('name_error').innerHTML = "Name Is Required";
+        return false;
+    }
+             
+        } 
+
+ function displayEvent()
+{
+    
+var i;  
+var x =  document.getElementById("eventname").value[0]; 
+var emp = new Array(x);  
+for (i=0;i<emp.length;i++){  
+    document.getElementById( 
+            "demo").innerHTML =emp[i];
+}
+}
+    </script> 
+           
+         
+     
+    
+</body>
+</html>
