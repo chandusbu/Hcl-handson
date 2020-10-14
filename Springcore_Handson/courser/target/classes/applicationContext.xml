@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+<bean  name="Course1" class="com.courser.Course">
+ <property name = "name" value = "Java"/>
+ <property name="mentor" value="Sathish"/>
+ <property name="fee" value="1000"/>
+ </bean>
+ <bean  name="Course2" class="com.courser.Course">
+ <property name = "name" value = "Selenium"/>
+ <property name="mentor" value="Kanimozhi"/>
+ <property name="fee" value="2000"/>
+ </bean>
+ <bean  name="Course3" class="com.courser.Course">
+ <property name = "name" value = "Python"/>
+ <property name="mentor" value="Arun"/>
+ <property name="fee" value="500"/>
+ </bean>
+ 
+<bean class="com.courser.CourserList" name="Courselist">
+<property name="courseList" >
+
+<list>
+<ref bean="Course1"/>
+<ref bean="Course2"/>
+<ref bean="Course3"/>
+</list>
+
+</property>
+
+</bean>
+
+
+</beans>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+<bean  name="address" class="com.kk.Address">
+ <property name = "line1" value = "2/115 AnnaNagar"/>
+ <property name="line2" value="Adyar"/>
+ <property name="city" value="krishnagiri"/>
+ <property name="pincode" value="652113">
+ </property>
+</bean>
+<bean name="employee" class="com.kk.Employee">
+<property name="employeeName" value="Satish"/>
+<property name="employeeSalary" value="45000"/>
+<property name="employeeEmail" value="sathish@gmail.com"/>
+<property name="address" ref="address"/>
+<property name = "employeeMobileNumber">
+         <list>
+            <value>897986</value>
+            <value>568587</value>
+            <value>75743</value>
+            <value>908776</value>
+         </list>
+</property>
+</bean>
+</beans>
+
