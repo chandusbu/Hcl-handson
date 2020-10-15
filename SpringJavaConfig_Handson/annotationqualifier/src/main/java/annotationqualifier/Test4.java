@@ -11,10 +11,9 @@ public class Test4 {
 		// TODO Auto-generated method stub
 		ApplicationContext context=new AnnotationConfigApplicationContext(Annotationconfig3.class);
 		User user=context.getBean(User.class,"user");
-		Order orders =context.getBean("order1",Order.class);
-		Order orders1=context.getBean("order2",Order.class);
+		
 		user.display();
-		orders1.display();
+		
 				((AnnotationConfigApplicationContext)context).close();
 			}
 	}

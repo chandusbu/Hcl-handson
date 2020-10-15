@@ -2,7 +2,7 @@ package annotationqualifier;
 
 import org.springframework.stereotype.Component;
 
-
+@Component
 public class Order {
 public Order(String itemname, Double price) {
 		super();
@@ -27,9 +27,5 @@ public Double getPrice() {
 public void setPrice(Double price) {
 	this.price = price;
 }
-public void display()
-{
-	System.out.println("itemname:"+itemname);
-	System.out.println("Price:"+price);
-}
+
 }

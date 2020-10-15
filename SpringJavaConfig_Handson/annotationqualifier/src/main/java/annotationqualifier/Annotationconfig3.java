@@ -7,10 +7,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 @Configuration
-@ComponentScan(basePackages = {"annotationqualifier"})
-@Component
 public class Annotationconfig3 {
-@Bean(name="orderone")	
+@Bean(name="order1")	
 public Order getOrder()
 {
 	Order orders=new Order();
@@ -18,17 +16,15 @@ public Order getOrder()
 	orders.setPrice(230.7);
 	return orders;
 }
-@Bean(name="ordertwo")
-@Autowired
-@Qualifier("Ordertwo") 
+@Bean(name="order2")
 public Order getOrder1()
 {
-	Order orders1=new Order();
-	orders1.setItemname("item2");
-	orders1.setPrice(230.07);
-	return orders1;
+	Order orders=new Order();
+	orders.setItemname("item2");
+	orders.setPrice(230.07);
+	return orders;
 }
-@Bean(name="user1")
+@Bean(name="user")
 public User getUser()
 {
 	User user=new User();

@@ -44,7 +44,7 @@ public Order getOrder() {
 	return order;
 }
 @Autowired
-
+@Qualifier("order2")
 public void setOrder(Order order) {
 	this.order = order;
 }
@@ -53,6 +53,8 @@ public void display()
 	System.out.println("Name:"+name);
 	System.out.println("Age:"+age);
 	System.out.println("City:"+City);
-	System.out.println("order:"+order);
+	System.out.println("Order Details:");
+	System.out.println("itemname:"+order.getItemname());
+	System.out.println("Price:"+order.getPrice());
 }
 }
